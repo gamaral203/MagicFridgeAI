@@ -34,7 +34,7 @@ public class FoodItemService {
                 .collect(Collectors.toList());
     }
 
-    public FoodItemDTO listarPorId(Long id) {
+    public FoodItemDTO buscarPorId(Long id) {
         Optional<FoodItemModel> foodItem = foodItemRepository.findById(id);
         return foodItem.map(foodItemMapper::mapToDTO).orElse(null);
     }

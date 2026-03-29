@@ -30,9 +30,9 @@ public class FoodItemController {
         return ResponseEntity.status(HttpStatus.OK).body(foodItemDTO);
     }
 
-    @GetMapping("/listarPorId/{id}")
-    public ResponseEntity<?> listarPorId(@PathVariable Long id) {
-        FoodItemDTO foodItemDTO = foodItemService.listarPorId(id);
+    @GetMapping("/buscarPorId/{id}")
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
+        FoodItemDTO foodItemDTO = foodItemService.buscarPorId(id);
 
         if (foodItemDTO != null) {
             return ResponseEntity.status(HttpStatus.OK).body(foodItemDTO);
@@ -44,7 +44,7 @@ public class FoodItemController {
 
     @DeleteMapping("/deletar/{id}")
     public ResponseEntity<String> deletar(@PathVariable Long id) {
-        if (foodItemService.listarPorId(id) != null) {
+        if (foodItemService.buscarPorId(id) != null) {
             foodItemService.deletarItem(id);
             return ResponseEntity.status(HttpStatus.OK)
                     .body("Item com o id " + id + " deletado com sucesso.");
